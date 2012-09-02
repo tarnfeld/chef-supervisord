@@ -1,0 +1,28 @@
+;
+; Chef managed supervisord config file
+;
+
+[supervisord]
+logfile=<%= node[:supervisord][:logfile] %>
+logfile_maxbytes=<%= node[:supervisord][:logfile_maxbytes] %>
+logfile_backups=<%= node[:supervisord][:logfile_backups] %>
+loglevel=<%= node[:supervisord][:loglevel] %>
+
+pidfile=<%= node[:supervisord][:pid] %>
+nodaemon=<%= node[:supervisord][:nodaemon] %>
+minfds=<%= node[:supervisord][:minfds] %>
+minprocs=<%= node[:supervisord][:minprocs] %>
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[supervisorctl]
+serverurl=<%= node[:supervisord][:serverurl] %>
+
+[inet_http_server]
+port=<%= node[:supervisor][:http_port] %>
+username=<%= node[:supervisor][:http_username] %>
+password=<%= node[:supervisor][:http_password] %>
+
+[include]
+files = /etc/supervisor/conf.d/*.conf

@@ -19,8 +19,9 @@
 
 package "supervisor"
 
-cookbook_file "/etc/supervisor/supervisord.conf" do
-  source "supervisord.conf"
+template "/etc/supervisor/supervisord.conf" do
+  source "supervisord.conf.erb"
+
   owner "root"
   group "root"
   mode "0644"

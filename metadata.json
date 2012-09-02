@@ -21,7 +21,7 @@
   "platforms": {
   },
   "name": "supervisord",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "Apache 2.0",
   "maintainer_email": "stephen@atalanta-systems.com",
   "groupings": {
